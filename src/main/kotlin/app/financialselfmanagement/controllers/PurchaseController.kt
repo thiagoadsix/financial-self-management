@@ -11,7 +11,7 @@ class PurchaseController (
     private val purchaseUsecase: PurchaseUsecase
 ) {
     @GetMapping()
-    fun helloWorldPurchase(): String {
-        return purchaseUsecase.purchase()
+    fun purchase() {
+        purchaseUsecase.purchase()
     }
 }
