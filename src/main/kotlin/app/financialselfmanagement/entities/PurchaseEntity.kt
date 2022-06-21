@@ -1,19 +1,16 @@
 package app.financialselfmanagement.entities
 
-import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.Type
 import java.math.BigDecimal
 import java.util.UUID
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity(name = "purchases")
 data class PurchaseEntity(
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, unique = true, nullable = false)
+    @Type(type = "org.hibernate.type.PostgresUUIDType")
     var id: UUID,
 
     @Column(name = "name")
@@ -21,4 +18,7 @@ data class PurchaseEntity(
 
     @Column(name = "amount", nullable = false)
     var amount: BigDecimal,
+
+    @Column(name = "category")
+    val category: String,
 )
