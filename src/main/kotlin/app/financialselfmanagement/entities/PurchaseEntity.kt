@@ -11,7 +11,7 @@ data class PurchaseEntity(
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, unique = true, nullable = false)
     @Type(type = "org.hibernate.type.PostgresUUIDType")
-    var id: UUID,
+    var id: UUID = UUID.randomUUID(),
 
     @Column(name = "name")
     val name: String,
