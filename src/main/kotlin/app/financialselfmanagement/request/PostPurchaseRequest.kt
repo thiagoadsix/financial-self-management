@@ -1,15 +1,16 @@
 package app.financialselfmanagement.request
 
-import org.jetbrains.annotations.NotNull
 import java.math.BigDecimal
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Positive
 
 data class PostPurchaseRequest (
-    @field:NotNull("Property name could not be null.")
-    val name: String,
+    @field:NotBlank
+    var name: String,
 
-    @field:NotNull("Property name could not be null.")
-    val amount: BigDecimal,
+    @field:Positive
+    var amount: BigDecimal,
 
-    @field:NotNull("Property name could not be null.")
-    val category: String
+    @field:NotBlank
+    var category: String
 )
